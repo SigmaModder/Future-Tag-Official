@@ -1,0 +1,470 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Future Tag Official</title>
+  <meta name="description" content="Welcome to Future Tag Official. Discover the game, join the community, and learn about moderator applications.">
+
+  <style>
+    :root {
+      --blue: #3699b7;
+      --button-blue: #4aa8c8;
+      --dark: #303030;
+      --white: #fafafa;
+      --text: #555;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 20px;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--white);
+      color: var(--text);
+    }
+
+    /* ===== TOP NAVIGATION ===== */
+
+    .header {
+      min-height: 170px;
+      padding: 18px 4% 18px 13px;
+      background: var(--dark);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .logo {
+      display: block;
+      width: 125px;
+      height: 125px;
+      object-fit: cover;
+    }
+
+    .brand-name {
+      color: var(--blue);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(28px, 3vw, 46px);
+      font-weight: normal;
+      white-space: nowrap;
+    }
+
+    .navigation {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: clamp(12px, 2.3vw, 38px);
+    }
+
+    .navigation a {
+      display: inline-block;
+      padding: 20px 5px;
+      color: #b9b9b9;
+      font-size: 16px;
+      text-decoration: none;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .navigation a:hover,
+    .navigation a.active {
+      color: #fff;
+      border-bottom-color: var(--blue);
+    }
+
+    /* ===== WELCOME / HERO SECTION ===== */
+
+    .hero {
+      display: grid;
+      grid-template-columns: 49% 51%;
+      min-height: 485px;
+      position: relative;
+    }
+
+    .hero-content {
+      padding: 55px 8% 75px 12%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      background: var(--white);
+    }
+
+    .hero h1 {
+      color: var(--blue);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(40px, 4.1vw, 60px);
+      font-weight: normal;
+      line-height: 1.24;
+      margin-bottom: 19px;
+    }
+
+    .hero h1 strong {
+      font-weight: bold;
+    }
+
+    .hero-description {
+      font-size: 18px;
+      line-height: 1.55;
+      margin-bottom: 20px;
+      max-width: 600px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 18px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 13px 17px;
+      border: 2px solid #287d98;
+      background: transparent;
+      color: #287d98;
+      font-size: 17px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .button.primary {
+      background: var(--button-blue);
+      color: #fff;
+      border-color: var(--button-blue);
+    }
+
+    .button:hover {
+      background: #287d98;
+      border-color: #287d98;
+      color: white;
+    }
+
+    .hero-image {
+      min-height: 485px;
+      background-color: #20252b;
+      background-image:
+        url("https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&fit=crop&w=1600&q=85");
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* ===== CURVED SECTION TRANSITION ===== */
+
+    .explore {
+      position: relative;
+      z-index: 1;
+      margin-top: -1px;
+      padding: 45px 6% 65px;
+      background: var(--white);
+      text-align: center;
+    }
+
+    .explore::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: -43px;
+      left: -5%;
+      width: 110%;
+      height: 90px;
+      background: var(--white);
+      border-top: 2px solid #d0d0d0;
+      border-radius: 50% 50% 0 0 / 55% 55% 0 0;
+    }
+
+    .explore h2,
+    .content-section h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--blue);
+      font-size: 36px;
+      font-weight: normal;
+      margin-bottom: 18px;
+    }
+
+    .section-description {
+      max-width: 850px;
+      margin: 0 auto;
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    /* ===== FEATURE CARDS ===== */
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 25px;
+      max-width: 1150px;
+      margin: 38px auto 0;
+      text-align: left;
+    }
+
+    .feature-card {
+      background: #fff;
+      border: 1px solid #e7e7e7;
+      padding: 28px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    }
+
+    .feature-card h3 {
+      color: var(--blue);
+      font-size: 21px;
+      margin-bottom: 12px;
+    }
+
+    .feature-card p {
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* ===== GAME AND APPLICATION SECTIONS ===== */
+
+    .content-section {
+      padding: 65px 8%;
+      text-align: center;
+    }
+
+    .game-section {
+      background: #303030;
+      color: #eee;
+    }
+
+    .game-section p {
+      color: #ddd;
+    }
+
+    .content-section .button {
+      margin-top: 25px;
+    }
+
+    .footer {
+      padding: 25px 15px;
+      text-align: center;
+      color: #aaa;
+      background: #242424;
+      font-size: 14px;
+    }
+
+    /* ===== MOBILE SUPPORT ===== */
+
+    @media (max-width: 1100px) {
+      .header {
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 18px;
+      }
+
+      .navigation {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .hero-content {
+        padding-left: 8%;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .brand {
+        gap: 15px;
+      }
+
+      .logo {
+        width: 80px;
+        height: 80px;
+      }
+
+      .brand-name {
+        font-size: clamp(23px, 5vw, 34px);
+        white-space: normal;
+      }
+
+      .navigation {
+        gap: 8px 16px;
+      }
+
+      .navigation a {
+        font-size: 13px;
+        padding: 10px 2px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-content {
+        padding: 48px 7% 55px;
+      }
+
+      .hero h1 {
+        font-size: clamp(39px, 9vw, 52px);
+      }
+
+      .hero-description {
+        font-size: 16px;
+      }
+
+      .hero-image {
+        min-height: 300px;
+      }
+
+      .explore {
+        padding: 45px 7% 50px;
+      }
+
+      .explore h2,
+      .content-section h2 {
+        font-size: 31px;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .content-section {
+        padding: 50px 7%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <a class="brand" href="#home" aria-label="Future Tag Official home">
+      <img class="logo" src="logo.png" alt="Future Tag gorilla logo">
+      <span class="brand-name">Future Tag Official</span>
+    </a>
+
+    <nav class="navigation" aria-label="Main navigation">
+      <a class="active" href="#home">HOME</a>
+      <a href="#about">ABOUT GAME</a>
+      <a href="#game">THE GAME</a>
+      <a href="#applications">MOD APPLICATIONS</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- WELCOME SECTION -->
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <h1>Welcome to <strong>Future Tag Official</strong></h1>
+
+        <p class="hero-description">
+          Future Tag is a Gorilla Tag-inspired game where you can
+          have fun, mess around, and play with your friends. Join our
+          community, hop into our Discord, or apply to join our
+          moderation team.
+        </p>
+
+        <div class="hero-buttons">
+          <a class="button primary" href="#about">About the game</a>
+          <a class="button" href="#game">Play now</a>
+        </div>
+      </div>
+
+      <div class="hero-image"
+           role="img"
+           aria-label="Virtual reality gaming setup"></div>
+    </section>
+
+    <!-- EXPLORE SECTION -->
+    <section class="explore" id="about">
+      <h2>Explore Future Tag</h2>
+
+      <p class="section-description">
+        Discover everything our virtual playground has to offer.
+        From playing with friends to joining our community,
+        there's always something new to explore.
+      </p>
+
+      <div class="features">
+        <article class="feature-card">
+          <h3>Play With Friends</h3>
+          <p>
+            Have fun together, explore the game, and make
+            unforgettable memories with your friends.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <h3>Join Our Community</h3>
+          <p>
+            Meet other players, join the conversation, and stay
+            updated on Future Tag news and events.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <h3>Join the Team</h3>
+          <p>
+            Interested in helping out? Learn about our moderator
+            applications and opportunities to join the team.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- GAME SECTION -->
+    <section class="content-section game-section" id="game">
+      <h2>The Game</h2>
+
+      <p class="section-description">
+        Ready to experience Future Tag? Find out more about the
+        game, explore its features, and get ready to play.
+      </p>
+
+      <!-- Replace # with your actual game link -->
+      <a class="button primary" href="YOUR-GAME-LINK">
+        Play Future Tag
+      </a>
+    </section>
+
+    <!-- MODERATOR APPLICATIONS -->
+    <section class="content-section" id="applications">
+      <h2>Mod Applications</h2>
+
+      <p class="section-description">
+        Want to help the Future Tag community? Check out our
+        moderator applications and learn how to join our team.
+      </p>
+
+      <!-- Replace with your actual application form URL -->
+      <a class="button primary" href="YOUR-APPLICATION-LINK">
+        Apply Now
+      </a>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    © 2026 Future Tag Official. All rights reserved.
+  </footer>
+
+</body>
+</html>
