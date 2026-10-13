@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Future Tag Official</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #333;
+      background: #f8f8f8;
+    }
+
+    :root {
+      --blue: #3199b9;
+      --dark: #303030;
+      --white: #ffffff;
+    }
+
+    /* Navigation bar */
+    header {
+      background: var(--dark);
+      color: white;
+      min-height: 145px;
+      padding: 18px 3%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      text-decoration: none;
+    }
+
+    .logo {
+      width: 125px;
+      height: 125px;
+      object-fit: cover;
+      background: #0865ff;
+    }
+
+    .brand-name {
+      color: var(--blue);
+      font-family: Georgia, serif;
+      font-size: clamp(27px, 3vw, 45px);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    nav a {
+      color: #c4c4c4;
+      text-decoration: none;
+      padding: 18px 15px;
+      border-bottom: 2px solid transparent;
+      transition: 0.2s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: white;
+      border-bottom-color: var(--blue);
+    }
+
+    /* Welcome section */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1.05fr;
+      min-height: 485px;
+    }
+
+    .hero-text {
+      padding: 65px 8%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .hero h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(38px, 4.2vw, 60px);
+      line-height: 1.2;
+      color: var(--blue);
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      line-height: 1.65;
+      color: #555;
+      margin-bottom: 22px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 19px;
+      text-decoration: none;
+      border: 2px solid var(--blue);
+      color: #267e9b;
+      transition: 0.2s;
+    }
+
+    .btn.primary {
+      color: white;
+      background: #4aa9c8;
+    }
+
+    .btn:hover {
+      background: #247f9e;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .hero-image {
+      min-height: 420px;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.05), rgba(0,0,0,.05)),
+        url("https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&fit=crop&w=1400&q=85")
+        center / cover no-repeat;
+    }
+
+    /* About section */
+    .section {
+      padding: 65px 8%;
+      text-align: center;
+    }
+
+    .section h2 {
+      color: var(--blue);
+      font-family: Georgia, serif;
+      font-size: 36px;
+      margin-bottom: 18px;
+    }
+
+    .section > p {
+      max-width: 750px;
+      margin: 0 auto;
+      line-height: 1.8;
+      color: #666;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 35px;
+      text-align: left;
+    }
+
+    .feature {
+      background: white;
+      padding: 28px;
+      border-radius: 8px;
+      border: 1px solid #e5e5e5;
+      box-shadow: 0 5px 18px rgba(0,0,0,.04);
+    }
+
+    .feature h3 {
+      color: var(--blue);
+      margin-bottom: 12px;
+    }
+
+    .feature p {
+      color: #666;
+      line-height: 1.7;
+    }
+
+    .dark-section {
+      background: var(--dark);
+      color: white;
+    }
+
+    .dark-section p {
+      color: #ddd;
+    }
+
+    footer {
+      background: #242424;
+      color: #aaa;
+      padding: 25px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    /* Mobile layout */
+    @media (max-width: 850px) {
+      header {
+        justify-content: center;
+      }
+
+      .brand {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .logo {
+        width: 85px;
+        height: 85px;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      nav a {
+        padding: 12px 8px;
+        font-size: 14px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-text {
+        padding: 48px 7%;
+      }
+
+      .hero-image {
+        min-height: 300px;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <a class="brand" href="#home">
+      <!-- Replace logo.png with your own logo file -->
+      <img class="logo" src="logo.png" alt="Future Tag logo"
+           onerror="this.style.display='none'">
+      <span class="brand-name">Future Tag Official</span>
+    </a>
+
+    <nav>
+      <a class="active" href="#home">HOME</a>
+      <a href="#about">ABOUT GAME</a>
+      <a href="#game">THE GAME</a>
+      <a href="#applications">MOD APPLICATIONS</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-text">
+        <h1>Welcome to Future Tag Official</h1>
+
+        <p>
+          Future Tag is a Gorilla Tag-inspired game where you can
+          have fun, mess around, and play with your friends.
+          Join our community and discover what Future Tag has to offer!
+        </p>
+
+        <div class="buttons">
+          <a class="btn primary" href="#about">About the game</a>
+          <a class="btn" href="#game">Play now</a>
+        </div>
+      </div>
+
+      <div class="hero-image" role="img"
+           aria-label="Virtual reality gaming setup"></div>
+    </section>
+
+    <section class="section" id="about">
+      <h2>Explore Future Tag</h2>
+      <p>
+        Discover our game, meet the community, and find out
+        what makes Future Tag a fun place to play.
+      </p>
+
+      <div class="features">
+        <article class="feature">
+          <h3>Play With Friends</h3>
+          <p>Have fun, explore, and enjoy games with your friends.</p>
+        </article>
+
+        <article class="feature">
+          <h3>Join the Community</h3>
+          <p>Meet other players and keep up with Future Tag news.</p>
+        </article>
+
+        <article class="feature">
+          <h3>Become a Moderator</h3>
+          <p>Learn about helping the community and applying for staff.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section dark-section" id="game">
+      <h2>The Game</h2>
+      <p>
+        Ready to learn more about Future Tag?
+        Add your game information, screenshots, and download link here.
+      </p>
+
+      <div class="buttons" style="justify-content:center; margin-top:25px">
+        <a class="btn primary" href="#applications">Learn more</a>
+      </div>
+    </section>
+
+    <section class="section" id="applications">
+      <h2>Mod Applications</h2>
+      <p>
+        Interested in joining the moderation team?
+        Add a link to your staff application form below.
+      </p>
+
+      <div style="margin-top:25px">
+        <a class="btn primary"
+           href="https://forms.google.com">
+          Apply for Moderator
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Future Tag Official. All rights reserved.
+  </footer>
+
+</body>
+</html>
